@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Centos8 Docker 搭建 WebGoat8</title>
+    <url>/2020/08/15/Centos8-Docker-%E6%90%AD%E5%BB%BA-WebGoat8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搭建个环境来复习下相关知识，webgoat是4个月前更新的，比较新，就用虚拟机部署一下吧。</p>
+<a id="more"></a>
+
+<p>选择docker的原因，除了快速上手之外，在虚拟机搭建完成后，主机也可以通过ip地址访问到虚拟机的webgoat</p>
+<h4 id="步骤大纲"><a href="#步骤大纲" class="headerlink" title="步骤大纲"></a>步骤大纲</h4><ul>
+<li>安装Centos 8 虚拟机</li>
+<li>安装docker</li>
+<li>搭建webgoat</li>
+</ul>
+<h4 id="安装Centos-8-虚拟机"><a href="#安装Centos-8-虚拟机" class="headerlink" title="安装Centos 8 虚拟机"></a>安装Centos 8 虚拟机</h4><hr>
+<ul>
+<li><p>首先用 vmware workstations pro 15 搭建好 centos8 ，安装步骤就不赘述了，最好用最新版本的vmware，安装完后自动安装vmtools，比较方便，之前的vmware安装的vm-tools由于内核选择不对，无法共享文件夹，现在最新版的已修复。</p>
+<p>Centos 镜像下载：<a href="https://developer.aliyun.com/mirror/">Centos</a></p>
+</li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/U083a56602cbb445e9d527b971daf9340Y.png" alt="img"></p>
+<ul>
+<li><p>更改centos 8的yum源为阿里云，提高下载速度</p>
+<ul>
+<li>备份 repo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mv &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载 repo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;etc&#x2F;yum.repos.d&#x2F;CentOS-Base.repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;repo&#x2F;Centos-8.repo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成缓存</li>
+</ul>
+<p><code>yum makecache</code></p>
+<ul>
+<li>更新系统</li>
+</ul>
+<p><code>yum update</code></p>
+</li>
+</ul>
+<h4 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h4><hr>
+<ol>
+<li>下载docker-ce的repo</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo -o &#x2F;etc&#x2F;yum.repos.d&#x2F;docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装依赖</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;fedora&#x2F;30&#x2F;x86_64&#x2F;stable&#x2F;Packages&#x2F;containerd.io-1.2.6-3.3.fc30.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装docker-ce</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install docker-ce</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>更改docker源，加快拉取速度</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https:&#x2F;&#x2F;dockerhub.azk8s.cn&quot;,</span><br><span class="line">    &quot;https:&#x2F;&#x2F;hub-mirror.c.163.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>启动docker</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service start docker</span><br></pre></td></tr></table></figure>
+
+<h4 id="搭建webgoat"><a href="#搭建webgoat" class="headerlink" title="搭建webgoat"></a>搭建webgoat</h4><hr>
+<ul>
+<li>拉取webgoat</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull webgoat&#x2F;webgoat-8.0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行webgoat</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -p 8080:8080 -t webgoat&#x2F;webgoat-8.0</span><br></pre></td></tr></table></figure>
+
+<p>至此，webgoat搭建完成，主机可以通过ip访问虚拟机的webgoat</p>
+<p><img src="https://i.loli.net/2020/03/16/rdVhMbCtNk9sAZY.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>webgoat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo搭建</title>
+    <url>/2020/08/15/Hexo%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搭建静态博客，免费运行在Gitee上，hexo还可以更换主题，具体的之后再写写吧</p>
+<p>记录下搭建过程，作为博客第一篇文章吧</p>
+<a id="more"></a>
+
+<h3 id="搭建Hexo"><a href="#搭建Hexo" class="headerlink" title="搭建Hexo"></a>搭建Hexo</h3><hr>
+<h5 id="安装Node环境"><a href="#安装Node环境" class="headerlink" title="安装Node环境"></a>安装Node环境</h5><hr>
+<p>去Node官网下载稳定版的node.js，我的版本是12.14.1长期支持版。</p>
+<p>下载完成后，一路next安装就行了，win+r键打开cmd，运行<code>node -v</code>，有版本号提示就是安装成功了。</p>
+<p><img src="https://i.loli.net/2020/02/05/maKXqAZxjQOSFuL.jpg" alt="node版本.jpg"></p>
+<p>如果没有梯子，包下载速度是很慢的，我们可以改成国内源提高下载速度。</p>
+<p>在cmd输入下列代码，然后回车。</p>
+<p><code>npm config set registry https://registry.npm.taobao.org</code></p>
+<p>如果有梯子，下面的Git也可以自己配置好代理，提高拉取速度。</p>
+<h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><hr>
+<p>到<a href="https://git-scm.com/">Git官网</a>下载最新的安装包，目前我的版本是2.25.0，一路next安装就可以了</p>
+<p>安装完会发现鼠标右键多了两个菜单，<em>Git bash here</em>和<em>Git GUI here</em></p>
+<p><img src="https://i.loli.net/2020/02/05/eRYiPotWJ5clsCx.png" alt="image-20200205115336802.png"></p>
+<h5 id="注册Gitee账号开启page"><a href="#注册Gitee账号开启page" class="headerlink" title="注册Gitee账号开启page"></a>注册Gitee账号开启page</h5><hr>
+<p>你也可以注册github账号，步骤都差不多，但国内的码云访问比较快</p>
+<p>注册登录好后，点击右上角的+号，新建仓库内容填写如下：</p>
+<p><img src="https://i.loli.net/2020/02/05/QnXGYhzvA4LBbe7.png" alt="image-20200205115530075.png"></p>
+<p>路径名随意输入，后面设置的时候，码云会自动生成*.gitee.io的域名，所以路径名最好不要重复gitee.io（截图里路径填的应该是Artiver），然后勾选<code>使用readme初始化仓库</code>，然后点击创建就行了。<br>创建完成后，到<code>服务</code>下拉框选择gitee pages进入，然后可以勾选强制https，然后启动。</p>
+<p><img src="https://i.loli.net/2020/02/05/DQkXczCwyfBFsh3.png" alt="image-20200205120403112.png"></p>
+<p>启动完成后即会生成域名，访问就是你的主页啦！</p>
+<p><img src="https://i.loli.net/2020/02/05/Ol1Rb3KGiMkcfrY.png" alt="image-20200205121855914.png"></p>
+<h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><hr>
+<p>到一个合适的目录下，建立一个用于存放博客的文件夹，进入后，鼠标右键–<em>Git bash here</em>，</p>
+<ul>
+<li><p>安装hexo</p>
+<ul>
+<li><code>npm i hexo-cli -g</code></li>
+</ul>
+</li>
+<li><p>初始化文件夹</p>
+<ul>
+<li><code>hexo init</code></li>
+</ul>
+</li>
+<li><p>安装组件</p>
+<ul>
+<li><code>npm install</code><br><code>npm i hexo-deployer-git</code></li>
+</ul>
+</li>
+<li><p>生成静态网页</p>
+<ul>
+<li><code>hexo g</code></li>
+</ul>
+</li>
+<li><p>开启本地服务器，浏览器访问<a href="http://localhost:4000/">localhost:4000</a>即可访问主页</p>
+<ul>
+<li><code>hexo s</code></li>
+</ul>
+</li>
+</ul>
+<p>主页访问完毕后，Ctrl + c即可关闭服务器</p>
+<h5 id="连接gitee和本地"><a href="#连接gitee和本地" class="headerlink" title="连接gitee和本地"></a>连接gitee和本地</h5><hr>
+<p>右键打开Git bash here，增加信息</p>
+<p><code>git config --global user.name &quot;你的用户名&quot;</code><br><code>git config --global user.email &quot;注册gitee的邮箱&quot;</code></p>
+<p>生成公私钥对，生成的公钥默认目录在 <em>C:\Users{用户}.ssh\id_rsa.pub</em>，文本方式打开即可</p>
+<p><code>ssh-keygen.exe -t rsa -C &quot;你的邮箱&quot;</code></p>
+<p>打开gitee–设置–SSH公钥–添加你的公钥，将id_rsa.pub的内容添加到这即可</p>
+<p><img src="https://i.loli.net/2020/02/05/gKYP5o2bvSf8z34.jpg" alt="添加公钥.jpg"></p>
+<p>进入博客根目录，打开_config.yml文件，末尾添加以下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://gitee.com/Artiver/Artiver</span> <span class="comment"># 你存放博客的gitee地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="添加、删除文章"><a href="#添加、删除文章" class="headerlink" title="添加、删除文章"></a>添加、删除文章</h5><hr>
+<p>添加博客，到博客根目录，Git bash here</p>
+<p><code>hexo new post &quot;文章标题&quot;</code></p>
+<p>然后在<em>\source_posts</em>目录下，会生成一个md文件，编辑这个文件即可编辑</p>
+<p>编辑完成即可<code>hexo g</code>生成静态网页，<code>hexo s</code>开启服务器，浏览器访问就可以看到首页有文章了</p>
+<p>删除博客，到_post目录下删除相应的文件，然后先清理再生成即可，如下：</p>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></p>
+<h5 id="部署到gitee上"><a href="#部署到gitee上" class="headerlink" title="部署到gitee上"></a>部署到gitee上</h5><hr>
+<p>在本地调试都完成的情况下，就可以把博客推送到gitee上了</p>
+<p><code>hexo d</code></p>
+<p>初次部署，会叫你填入gitee账号密码，填写完成即可推送</p>
+<p><img src="https://i.loli.net/2020/02/05/xDRuiSXLaheckOA.jpg" alt="Snipaste_2020-02-05_13-45-30.jpg"></p>
+<p>推送完成，到主页–服务–gitee pages，选择重新部署</p>
+<p>稍等片刻，然后访问你<code>gitee.io</code>的主页即可看到和本地一样的效果了</p>
+<h5 id="一些调试与设置"><a href="#一些调试与设置" class="headerlink" title="一些调试与设置"></a>一些调试与设置</h5><hr>
+<h3 id="1、创建“分类”选项"><a href="#1、创建“分类”选项" class="headerlink" title="1、创建“分类”选项"></a>1、创建“分类”选项</h3><h4 id="1-1-生成“分类”页并添加tpye属性"><a href="#1-1-生成“分类”页并添加tpye属性" class="headerlink" title="1.1 生成“分类”页并添加tpye属性"></a>1.1 生成“分类”页并添加tpye属性</h4><p>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>根据创建的提示路径，找到<code>index.md</code>这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加<code>type: &quot;categories&quot;</code>到内容中，可以如下设置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<h4 id="1-2-给文章添加“categories”属性"><a href="#1-2-给文章添加“categories”属性" class="headerlink" title="1.2 给文章添加“categories”属性"></a>1.2 给文章添加“categories”属性</h4><p>打开需要添加分类的文章，为其添加categories属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">categories: </span><br><span class="line">- web前端</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、创建“标签”选项"><a href="#2、创建“标签”选项" class="headerlink" title="2、创建“标签”选项"></a>2、创建“标签”选项</h3><h4 id="2-1-生成“标签”页并添加tpye属性"><a href="#2-1-生成“标签”页并添加tpye属性" class="headerlink" title="2.1 生成“标签”页并添加tpye属性"></a>2.1 生成“标签”页并添加tpye属性</h4><p>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>根据提示的路径，找到<code>index.md</code>这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加<code>type: &quot;tags&quot;</code>到内容中，添加后是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<h4 id="2-2-给文章添加“tags”属性"><a href="#2-2-给文章添加“tags”属性" class="headerlink" title="2.2 给文章添加“tags”属性"></a>2.2 给文章添加“tags”属性</h4><p>打开需要添加标签的文章，为其添加tags属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery</span><br><span class="line">date: 2020-08-15 17:00:40</span><br><span class="line">categories: </span><br><span class="line">- web前端</span><br><span class="line">tags:</span><br><span class="line">- jQuery</span><br><span class="line">- 表格</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>可以打开scaffolds/post.md文件，在tages:上面加入categories:，保存后，之后执行<code>hexo new 文章名</code>命令生成的文件，页面里就有<code>categories:</code>项了，也可以自己定义模板值，初始化就有默认的tags与categories。<strong>需要注意的是，一定要记得layout属性的设置，这个因主题不同而异，否则打开标签或者分类会是空白的页面。</strong></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python模块 pathlib常规使用</title>
+    <url>/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pathlib 是python3.4 之后内置的一个模块，用于文件系统的操作，用起来比os的path模块来得简单，所以记录下一些常用的操作。</p>
+<a id="more"></a>
+
+<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><hr>
+<ul>
+<li>文件夹操作</li>
+<li>文件操作</li>
+<li>遍历文件</li>
+<li>判断类型</li>
+</ul>
+<hr>
+<p>在使用前，先导入pathlib模块中的Path函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br></pre></td></tr></table></figure>
+
+<p>然后设定一个目录作为工作目录，有两种设定方式，一种是当前文件夹，还有一种是自定义设置目录</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将当前py文件所在文件夹作为工作目录</span></span><br><span class="line">root = Path()</span><br><span class="line"><span class="comment"># 自定义目录，使用 r&quot;&quot; 字符串可以不用转义反斜杠</span></span><br><span class="line">root = Path(<span class="string">r&quot;D:\Downloads&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h4><hr>
+<ul>
+<li>创建文件夹</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个dir目录</span></span><br><span class="line">dir = root / <span class="string">&quot;dir&quot;</span></span><br><span class="line">dir.mkdir()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除文件夹</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除dir目录</span></span><br><span class="line">dir.rmdir()</span><br></pre></td></tr></table></figure>
+
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><hr>
+<ul>
+<li>创建文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个readme.txt文件</span></span><br><span class="line">txt = root / <span class="string">&quot;readme.txt&quot;</span></span><br><span class="line">txt.touch()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取文件信息</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取文件后缀 (.txt)</span></span><br><span class="line">txt.suffix</span><br><span class="line"><span class="comment"># 获取文件名，不含后缀 (readme)</span></span><br><span class="line">txt.stem</span><br><span class="line"><span class="comment"># 获取完整文件名 (readme.txt)</span></span><br><span class="line">txt.name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>修改文件</p>
+<ul>
+<li>读取文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以文本方式读取内容</span></span><br><span class="line">content = txt.read_text()</span><br><span class="line"><span class="comment"># 以二进制读取文件内容</span></span><br><span class="line">content = txt.read_bytes()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>写入文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以文本方式写入内容</span></span><br><span class="line">txt.write_text(<span class="string">&quot;hello, world&quot;</span>)</span><br><span class="line"><span class="comment"># 以二进制方式写入内容</span></span><br><span class="line">txt.write_bytes(<span class="string">b&quot;hello&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重命名文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 readme.txt 修改成 read.txt</span></span><br><span class="line">txt.replace(txt.with_name(<span class="string">&quot;read.txt&quot;</span>))</span><br><span class="line"><span class="comment"># 将 read.txt 修改后缀为 read.md</span></span><br><span class="line">txt.replace(txt.with_suffix(<span class="string">&quot;.md&quot;</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除 read.md 文件</span></span><br><span class="line">txt.unlink()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="遍历文件"><a href="#遍历文件" class="headerlink" title="遍历文件"></a>遍历文件</h4><hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 遍历当前目录，打印目录和文件</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.iterdir():</span><br><span class="line">    print(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出当前目录下后缀为 py 的文件, 不会进入子目录查找，参数类似于正则匹配</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.glob(<span class="string">&quot;*.py&quot;</span>):</span><br><span class="line">    print(x)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 递归查找后缀为 txt 的文件，也就是会进入子目录查找</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.rglob(<span class="string">&quot;*.txt&quot;</span>):</span><br><span class="line">    print(X)</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h4><hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 判断是否为文件</span></span><br><span class="line">root.is_file()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为文件夹</span></span><br><span class="line">root.is_dir()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断文件或者文件夹是否存在</span></span><br><span class="line">root.exists()</span><br></pre></td></tr></table></figure>
+
+<h4 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h4><hr>
+<p>比方说，从网上下载下来的 jpg 文件，给它重命名</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将此脚本放到和jpg文件同一个目录下</span></span><br><span class="line">root = Path()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用正则表达式匹配需要修改的文件名</span></span><br><span class="line">rc = re.compile(<span class="string">r&quot;abcd\.cc\+-\+(.*)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历当前文件夹的jpg文件</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.glob(<span class="string">&#x27;*.jpg&#x27;</span>):</span><br><span class="line">    <span class="keyword">if</span> rc.match(x.stem):</span><br><span class="line">        <span class="comment"># 用re的sub方法，将匹配的字符串清空，然后重命名</span></span><br><span class="line">        x.replace(x.with_name(re.sub(<span class="string">r&quot;^abcd\.cc\+-\+&quot;</span>, <span class="string">&quot;&quot;</span>, x.name)))</span><br></pre></td></tr></table></figure>
+
+<p>个人常用的，比较基础的就这些，其他更详细的可以查阅官方的文档 <a href="https://docs.python.org/zh-cn/3.7/library/pathlib.html">Pathlib</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora的常规使用</title>
+    <url>/2020/08/15/Typora%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Typora 是一款即时渲染的Markdown语法编辑器，用于记录、笔记都是不错的选择，下面是整理出的一些常用的操作。</p>
+<a id="more"></a>
+
+<h3 id="Typora-使用"><a href="#Typora-使用" class="headerlink" title="Typora 使用"></a>Typora 使用</h3><h4 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h4><hr>
+<ul>
+<li><p>Ctrl + {1-6} 分别格式不同级别的标题</p>
+</li>
+<li><p>Ctrl + {=、-} 分别提高、降低标题的等级</p>
+</li>
+<li><p>*** 回车能够打出下划线</p>
+</li>
+</ul>
+<p>## 也能打印不同级别的标题</p>
+<h4 id="2、引用"><a href="#2、引用" class="headerlink" title="2、引用"></a>2、引用</h4><hr>
+<blockquote>
+<p>&gt; 引用内容</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>&gt;&gt;引用内容2</p>
+</blockquote>
+</blockquote>
+<p>多次回车即可跳回上级引用</p>
+<h4 id="3、代码"><a href="#3、代码" class="headerlink" title="3、代码"></a>3、代码</h4><hr>
+<ul>
+<li><p>`code` 编辑单行代码</p>
+<p><code>List&lt;&gt; strList = new ArrayList&lt;&gt;();</code></p>
+</li>
+</ul>
+<ul>
+<li><p>```python 或者 ~~~python 插入指定类型的代码块</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line">myStr = [<span class="string">&quot;artiver&quot;</span>, <span class="string">&quot;com&quot;</span>]</span><br><span class="line">print(<span class="string">&quot;.&quot;</span>.join(myStr))</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>Ctrl + shift + m 插入公式，Ctrl + enter跳出</li>
+</ul>
+<p>$$<br>f = ma<br>$$</p>
+<h4 id="4、列表"><a href="#4、列表" class="headerlink" title="4、列表"></a>4、列表</h4><hr>
+<ul>
+<li><p>无序列表</p>
+<ul>
+<li><p>单行无序列表</p>
+<ul>
+<li><p>* 无序列表</p>
+</li>
+<li><p>+ 无序列表</p>
+</li>
+<li><p>-  无序列表</p>
+</li>
+</ul>
+</li>
+<li><p>多行无序列表</p>
+<ul>
+<li><p>* 列表1</p>
+</li>
+<li><p>tab * 列表2</p>
+</li>
+<li><p>tab tab * 列表3</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>有序列表</p>
+<ol>
+<li><p>有序列表1</p>
+</li>
+<li><p>有序列表2</p>
+<ol>
+<li>Enter + tab 有序列表2.1</li>
+<li>有序列表2.2</li>
+</ol>
+</li>
+<li><p>有序列表3</p>
+</li>
+</ol>
+</li>
+<li><p>Ctrl + { [、] } 减少缩进或者增加缩进</p>
+</li>
+</ul>
+<h4 id="5、表格"><a href="#5、表格" class="headerlink" title="5、表格"></a>5、表格</h4><hr>
+<p>|姓名|年龄|</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loyad</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Tio</td>
+<td>22</td>
+</tr>
+</tbody></table>
+<h4 id="6、图片"><a href="#6、图片" class="headerlink" title="6、图片"></a>6、图片</h4><hr>
+<ul>
+<li>本地图片<ul>
+<li>待补充</li>
+</ul>
+</li>
+<li>网络图片<ul>
+<li>Ctrl + shift + I</li>
+</ul>
+</li>
+<li>超链接<ul>
+<li>Ctrl + k<ul>
+<li><a href="https://cn.bing.com/">必应</a></li>
+</ul>
+</li>
+<li>&lt;Url&gt;<ul>
+<li><a href="https://github.com/">https://github.com</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="7、其他"><a href="#7、其他" class="headerlink" title="7、其他"></a>7、其他</h4><hr>
+<ul>
+<li><p>ctrl + i<em>斜体</em></p>
+</li>
+<li><p>ctrl + b <strong>加粗</strong></p>
+</li>
+<li><p>ctrl + u <u>文字下划线</u></p>
+</li>
+<li><p>ctrl + \  清除样式</p>
+</li>
+<li><p>alt + shift + 5<del>删除线</del></p>
+</li>
+<li><!--注释-->
+</li>
+<li><p>\ 可以转义字符</p>
+</li>
+<li><p>[toc] 生成目录</p>
+</li>
+<li><p>注脚[^1] ，Typora[^1]，通常注脚内容写最后吧</p>
+</li>
+<li><p>[^1]: 一份编辑器</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+</search>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Artiver</title>
+  
+  <subtitle>海</subtitle>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-08-15T09:50:43.554Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Artiver</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python模块 pathlib常规使用</title>
+    <link href="http://yoursite.com/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-08-15T09:45:09.000Z</published>
+    <updated>2020-08-15T09:50:43.554Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;pathlib 是python3.4 之后内置的一个模块，用于文件系统的操作，用起来比os的path模块来得简单，所以记录下一些常用的操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos8 Docker 搭建 WebGoat8</title>
+    <link href="http://yoursite.com/2020/08/15/Centos8-Docker-%E6%90%AD%E5%BB%BA-WebGoat8/"/>
+    <id>http://yoursite.com/2020/08/15/Centos8-Docker-%E6%90%AD%E5%BB%BA-WebGoat8/</id>
+    <published>2020-08-15T09:39:30.000Z</published>
+    <updated>2020-08-15T09:43:43.844Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;搭建个环境来复习下相关知识，webgoat是4个月前更新的，比较新，就用虚拟机部署一下吧。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="webgoat" scheme="http://yoursite.com/tags/webgoat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建</title>
+    <link href="http://yoursite.com/2020/08/15/Hexo%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2020/08/15/Hexo%E6%90%AD%E5%BB%BA/</id>
+    <published>2020-08-15T08:26:35.000Z</published>
+    <updated>2020-08-15T10:44:19.792Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;搭建静态博客，免费运行在Gitee上，hexo还可以更换主题，具体的之后再写写吧&lt;/p&gt;
+&lt;p&gt;记录下搭建过程，作为博客第一篇文章吧&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Typora的常规使用</title>
+    <link href="http://yoursite.com/2020/08/15/Typora%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/08/15/Typora%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-08-15T04:27:59.000Z</published>
+    <updated>2020-08-16T02:29:42.079Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Typora 是一款即时渲染的Markdown语法编辑器，用于记录、笔记都是不错的选择，下面是整理出的一些常用的操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Typora" scheme="http://yoursite.com/tags/Typora/"/>
+    
+  </entry>
+  
+</feed>
