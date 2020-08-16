@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Python模块 pathlib常规使用 |  Artiver
+    Java入门 |  Artiver
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Python模块-pathlib常规使用"
+  id="post-Java入门"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,15 +63,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Python模块 pathlib常规使用
+  Java入门
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-08-15T05:45:09.000Z" itemprop="datePublished">2020-08-15</time>
+      <a href="/2020/08/16/Java%E5%85%A5%E9%97%A8/" class="article-date">
+  <time datetime="2020-08-16T14:34:47.000Z" itemprop="datePublished">2020-08-16</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">686</span>
+            <span class="post-count">258</span>
         </span>
     </span>
 
@@ -91,92 +91,24 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>pathlib 是python3.4 之后内置的一个模块，用于文件系统的操作，用起来比os的path模块来得简单，所以记录下一些常用的操作。</p>
+  <p>开始入门java，备份下非常基础的操作</p>
 <a id="more"></a>
 
-<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><hr>
-<ul>
-<li>文件夹操作</li>
-<li>文件操作</li>
-<li>遍历文件</li>
-<li>判断类型</li>
-</ul>
-<hr>
-<p>在使用前，先导入pathlib模块中的Path函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// myList();</span></span><br><span class="line">        <span class="comment">// Integer a = 102;</span></span><br><span class="line">        <span class="comment">// System.out.print(a instanceof Integer);</span></span><br><span class="line">        <span class="comment">// myMap();</span></span><br><span class="line">        <span class="comment">// StringBuilder abc = new StringBuilder(&quot;hello&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// abc.setLength(0);</span></span><br><span class="line">        <span class="comment">// abc.append(&quot;second&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// System.out.println(abc.toString());</span></span><br><span class="line">        myFile();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myList</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        strList.add(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        strList.add(<span class="string">&quot;Tio&quot;</span>);;</span><br><span class="line">        strList.contains(<span class="string">&quot;Tio&quot;</span>);</span><br><span class="line">        strList.indexOf(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String h : strList)&#123;</span><br><span class="line">            System.out.printf(<span class="string">&quot;%s &quot;</span>, h);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strList.size(); i ++)&#123;</span><br><span class="line">            System.out.print(strList.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Map&lt;String, Integer&gt; mymap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        mymap.put(<span class="string">&quot;Loyad&quot;</span>, <span class="number">98</span>);</span><br><span class="line">        mymap.put(<span class="string">&quot;Tio&quot;</span>, <span class="number">99</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : mymap.entrySet())&#123;</span><br><span class="line">            String name = entry.getKey();</span><br><span class="line">            Integer score = entry.getValue();</span><br><span class="line">            System.out.println(name + <span class="string">&quot; &quot;</span> + score);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myFile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;.\\README.md&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (f.exists())&#123;</span><br><span class="line">            <span class="keyword">if</span> (f.isDirectory())&#123;</span><br><span class="line">                <span class="keyword">for</span> (File temp : f.listFiles())&#123;</span><br><span class="line">                    System.out.println(temp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(f.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>然后设定一个目录作为工作目录，有两种设定方式，一种是当前文件夹，还有一种是自定义设置目录</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前py文件所在文件夹作为工作目录</span></span><br><span class="line">root = Path()</span><br><span class="line"><span class="comment"># 自定义目录，使用 r&quot;&quot; 字符串可以不用转义反斜杠</span></span><br><span class="line">root = Path(<span class="string">r&quot;D:\Downloads&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h4><hr>
-<ul>
-<li>创建文件夹</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个dir目录</span></span><br><span class="line">dir = root / <span class="string">&quot;dir&quot;</span></span><br><span class="line">dir.mkdir()</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除文件夹</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除dir目录</span></span><br><span class="line">dir.rmdir()</span><br></pre></td></tr></table></figure>
-
-<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><hr>
-<ul>
-<li>创建文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个readme.txt文件</span></span><br><span class="line">txt = root / <span class="string">&quot;readme.txt&quot;</span></span><br><span class="line">txt.touch()</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取文件信息</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取文件后缀 (.txt)</span></span><br><span class="line">txt.suffix</span><br><span class="line"><span class="comment"># 获取文件名，不含后缀 (readme)</span></span><br><span class="line">txt.stem</span><br><span class="line"><span class="comment"># 获取完整文件名 (readme.txt)</span></span><br><span class="line">txt.name</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>修改文件</p>
-<ul>
-<li>读取文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以文本方式读取内容</span></span><br><span class="line">content = txt.read_text()</span><br><span class="line"><span class="comment"># 以二进制读取文件内容</span></span><br><span class="line">content = txt.read_bytes()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>写入文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以文本方式写入内容</span></span><br><span class="line">txt.write_text(<span class="string">&quot;hello, world&quot;</span>)</span><br><span class="line"><span class="comment"># 以二进制方式写入内容</span></span><br><span class="line">txt.write_bytes(<span class="string">b&quot;hello&quot;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>重命名文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 readme.txt 修改成 read.txt</span></span><br><span class="line">txt.replace(txt.with_name(<span class="string">&quot;read.txt&quot;</span>))</span><br><span class="line"><span class="comment"># 将 read.txt 修改后缀为 read.md</span></span><br><span class="line">txt.replace(txt.with_suffix(<span class="string">&quot;.md&quot;</span>))</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除 read.md 文件</span></span><br><span class="line">txt.unlink()</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="遍历文件"><a href="#遍历文件" class="headerlink" title="遍历文件"></a>遍历文件</h4><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 遍历当前目录，打印目录和文件</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.iterdir():</span><br><span class="line">    print(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出当前目录下后缀为 py 的文件, 不会进入子目录查找，参数类似于正则匹配</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.glob(<span class="string">&quot;*.py&quot;</span>):</span><br><span class="line">    print(x)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 递归查找后缀为 txt 的文件，也就是会进入子目录查找</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.rglob(<span class="string">&quot;*.txt&quot;</span>):</span><br><span class="line">    print(X)</span><br></pre></td></tr></table></figure>
-
-<h4 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h4><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断是否为文件</span></span><br><span class="line">root.is_file()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为文件夹</span></span><br><span class="line">root.is_dir()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断文件或者文件夹是否存在</span></span><br><span class="line">root.exists()</span><br></pre></td></tr></table></figure>
-
-<h4 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h4><hr>
-<p>比方说，从网上下载下来的 jpg 文件，给它重命名</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将此脚本放到和jpg文件同一个目录下</span></span><br><span class="line">root = Path()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用正则表达式匹配需要修改的文件名</span></span><br><span class="line">rc = re.compile(<span class="string">r&quot;abcd\.cc\+-\+(.*)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历当前文件夹的jpg文件</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> root.glob(<span class="string">&#x27;*.jpg&#x27;</span>):</span><br><span class="line">    <span class="keyword">if</span> rc.match(x.stem):</span><br><span class="line">        <span class="comment"># 用re的sub方法，将匹配的字符串清空，然后重命名</span></span><br><span class="line">        x.replace(x.with_name(re.sub(<span class="string">r&quot;^abcd\.cc\+-\+&quot;</span>, <span class="string">&quot;&quot;</span>, x.name)))</span><br></pre></td></tr></table></figure>
-
-<p>个人常用的，比较基础的就这些，其他更详细的可以查阅官方的文档 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/pathlib.html">Pathlib</a></p>
  
       <!-- reward -->
       
@@ -239,12 +171,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/08/16/Java%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
 
     </footer>
   </div>
@@ -252,19 +184,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2020/08/15/Centos8-Docker-%E6%90%AD%E5%BB%BA-WebGoat8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Centos8 Docker 搭建 WebGoat8
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/08/15/Typora%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Typora的常规使用</div>
+        <div class="article-nav-title">Centos8 Docker 搭建 WebGoat8</div>
       </a>
     
   </nav>

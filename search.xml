@@ -209,6 +209,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Java入门</title>
+    <url>/2020/08/16/Java%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>开始入门java，备份下非常基础的操作</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// myList();</span></span><br><span class="line">        <span class="comment">// Integer a = 102;</span></span><br><span class="line">        <span class="comment">// System.out.print(a instanceof Integer);</span></span><br><span class="line">        <span class="comment">// myMap();</span></span><br><span class="line">        <span class="comment">// StringBuilder abc = new StringBuilder(&quot;hello&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// abc.setLength(0);</span></span><br><span class="line">        <span class="comment">// abc.append(&quot;second&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// System.out.println(abc.toString());</span></span><br><span class="line">        myFile();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myList</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        strList.add(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        strList.add(<span class="string">&quot;Tio&quot;</span>);;</span><br><span class="line">        strList.contains(<span class="string">&quot;Tio&quot;</span>);</span><br><span class="line">        strList.indexOf(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String h : strList)&#123;</span><br><span class="line">            System.out.printf(<span class="string">&quot;%s &quot;</span>, h);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strList.size(); i ++)&#123;</span><br><span class="line">            System.out.print(strList.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Map&lt;String, Integer&gt; mymap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        mymap.put(<span class="string">&quot;Loyad&quot;</span>, <span class="number">98</span>);</span><br><span class="line">        mymap.put(<span class="string">&quot;Tio&quot;</span>, <span class="number">99</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : mymap.entrySet())&#123;</span><br><span class="line">            String name = entry.getKey();</span><br><span class="line">            Integer score = entry.getValue();</span><br><span class="line">            System.out.println(name + <span class="string">&quot; &quot;</span> + score);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myFile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;.\\README.md&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (f.exists())&#123;</span><br><span class="line">            <span class="keyword">if</span> (f.isDirectory())&#123;</span><br><span class="line">                <span class="keyword">for</span> (File temp : f.listFiles())&#123;</span><br><span class="line">                    System.out.println(temp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(f.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python模块 pathlib常规使用</title>
     <url>/2020/08/15/Python%E6%A8%A1%E5%9D%97-pathlib%E5%B8%B8%E8%A7%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pathlib 是python3.4 之后内置的一个模块，用于文件系统的操作，用起来比os的path模块来得简单，所以记录下一些常用的操作。</p>
@@ -419,7 +435,7 @@
 </ul>
 <h4 id="7、其他"><a href="#7、其他" class="headerlink" title="7、其他"></a>7、其他</h4><hr>
 <ul>
-<li><p>ctrl + i<em>斜体</em></p>
+<li><p>ctrl + i <em>斜体</em></p>
 </li>
 <li><p>ctrl + b <strong>加粗</strong></p>
 </li>
@@ -427,9 +443,9 @@
 </li>
 <li><p>ctrl + \  清除样式</p>
 </li>
-<li><p>alt + shift + 5<del>删除线</del></p>
+<li><p>alt + shift + 5 <del>删除线</del></p>
 </li>
-<li><!--注释-->
+<li><p>&lt;!--注释--&gt;</p>
 </li>
 <li><p>\ 可以转义字符</p>
 </li>
