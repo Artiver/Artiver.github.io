@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Java入门 |  Artiver
+    Eclipse配置Java14+Tomcat9开发JavaWeb |  Artiver
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Java入门"
+  id="post-Eclipse配置Java14-Tomcat9开发JavaWeb"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,15 +63,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Java入门
+  Eclipse配置Java14+Tomcat9开发JavaWeb
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/08/16/Java%E5%85%A5%E9%97%A8/" class="article-date">
-  <time datetime="2020-08-16T14:34:47.000Z" itemprop="datePublished">2020-08-16</time>
+      <a href="/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/" class="article-date">
+  <time datetime="2020-08-23T07:07:59.000Z" itemprop="datePublished">2020-08-23</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">258</span>
+            <span class="post-count">659</span>
         </span>
     </span>
 
@@ -91,24 +91,55 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>开始入门java，备份下非常基础的操作</p>
+  <p>eclipse便携版配置好Tomcat，便于开发Javaweb</p>
 <a id="more"></a>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// myList();</span></span><br><span class="line">        <span class="comment">// Integer a = 102;</span></span><br><span class="line">        <span class="comment">// System.out.print(a instanceof Integer);</span></span><br><span class="line">        <span class="comment">// myMap();</span></span><br><span class="line">        <span class="comment">// StringBuilder abc = new StringBuilder(&quot;hello&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// abc.setLength(0);</span></span><br><span class="line">        <span class="comment">// abc.append(&quot;second&quot;);</span></span><br><span class="line">        <span class="comment">// System.out.println(System.identityHashCode(abc));</span></span><br><span class="line">        <span class="comment">// System.out.println(abc.toString());</span></span><br><span class="line">        myFile();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myList</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        strList.add(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        strList.add(<span class="string">&quot;Tio&quot;</span>);;</span><br><span class="line">        strList.contains(<span class="string">&quot;Tio&quot;</span>);</span><br><span class="line">        strList.indexOf(<span class="string">&quot;Loyad&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String h : strList)&#123;</span><br><span class="line">            System.out.printf(<span class="string">&quot;%s &quot;</span>, h);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strList.size(); i ++)&#123;</span><br><span class="line">            System.out.print(strList.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Map&lt;String, Integer&gt; mymap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        mymap.put(<span class="string">&quot;Loyad&quot;</span>, <span class="number">98</span>);</span><br><span class="line">        mymap.put(<span class="string">&quot;Tio&quot;</span>, <span class="number">99</span>);</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : mymap.entrySet())&#123;</span><br><span class="line">            String name = entry.getKey();</span><br><span class="line">            Integer score = entry.getValue();</span><br><span class="line">            System.out.println(name + <span class="string">&quot; &quot;</span> + score);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myFile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File f = <span class="keyword">new</span> File(<span class="string">&quot;.\\README.md&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (f.exists())&#123;</span><br><span class="line">            <span class="keyword">if</span> (f.isDirectory())&#123;</span><br><span class="line">                <span class="keyword">for</span> (File temp : f.listFiles())&#123;</span><br><span class="line">                    System.out.println(temp);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(f.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><hr>
+<p>Java下载，环境变量配置，这就不赘述了，到<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/javase-downloads.html">Oracle</a>下载jdk即可</p>
+<p>Tomcat下载，到<a target="_blank" rel="noopener" href="https://tomcat.apache.org/download-90.cgi">Apache</a>页面，目前10还在开发，我的版本是9，解压到合适目录</p>
+<p>eclipse，在<a target="_blank" rel="noopener" href="https://www.eclipse.org/downloads/packages/">官网</a>下载就好，我选的是便携版的eclipse for enterprise，解压到合适目录</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><hr>
+<h5 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h5><p>启动eclipse，选项卡<code>Windows--preference--server--runtime environment</code>，点击add，选择<code>Apache tomcat v9.0</code>，next，browse，选择Tomcat的目录，然后确定，finish，apply and close</p>
+<p><img src="https://i.loli.net/2020/08/23/5vXPqzNZ9tVGuFi.png" alt="image.png"></p>
+<h5 id="2、建立工程"><a href="#2、建立工程" class="headerlink" title="2、建立工程"></a>2、建立工程</h5><p>选项卡，<code>file--new--other</code>，往下选择<code>web--dynamic web project</code>，next，填写项目名，next，next，记得勾选<strong>generate web.xml</strong>！finish</p>
+<p><img src="https://i.loli.net/2020/08/23/WkFpdMZ6Dh8E5L4.png" alt="image.png"></p>
+<h5 id="3、最后配置"><a href="#3、最后配置" class="headerlink" title="3、最后配置"></a>3、最后配置</h5><p>如果eclipse的控制台没有servers选项卡，点击<code>Window--show views--servers</code></p>
+<p>此时是没有有效的server的，点击新建一个，弹出的窗口确定下信息</p>
+<p>然后next，接下来把我们的项目添加到配置里面（如下图），然后finish</p>
+<p><img src="https://i.loli.net/2020/08/23/Cqjm89pMd7OSriE.png" alt="image-20200823154215904.png"></p>
+<h5 id="4、测试结果"><a href="#4、测试结果" class="headerlink" title="4、测试结果"></a>4、测试结果</h5><p>打开<code>项目名--Java resources</code>，在src鼠标右击，<code>new--servlet</code>，</p>
+<p>输入包名和类名，package：test，classname：page，finish，java内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class page</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet(&quot;/page&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">page</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">page</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        response.getWriter().append(<span class="string">&quot;Served at: &quot;</span>).append(request.getContextPath());</span><br><span class="line">        PrintWriter pw = response.getWriter();</span><br><span class="line">        pw.println(<span class="string">&quot;\n&quot;</span>+request.getParameter(<span class="string">&quot;username&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<p><code>webcontent右击--new--jsp file</code>，文件名可设置为index.jsp，finish，jsp内容如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=ISO-8859-1&quot;</span></span><br><span class="line">    pageEncoding=<span class="string">&quot;ISO-8859-1&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;ISO-8859-1&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form name=<span class="string">&quot;input&quot;</span> action=<span class="string">&quot;page&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;username&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;Submit&quot;</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>控制台servers选项卡，右击Tomcat，start，浏览器输入 <a target="_blank" rel="noopener" href="http://localhost:8080/MyServlet/index.jsp">http://localhost:8080/MyServlet/index.jsp</a> 回车</p>
+<p>即可看到输入框和submit按钮，输入hello，提交后，显示如下即为成功</p>
+<p><img src="https://i.loli.net/2020/08/23/8BK6NngRMHfLZrI.png" alt="image.png"></p>
+<p>然而此时的工程是部署在eclipse里的而不是Tomcat，所以在servers选项卡里</p>
+<p>删掉现有的服务器，按照之前的步骤新建一个Tomcat后，双击Tomcat v9.0，</p>
+<p>在server locations里面，选择<strong>use Tomcat installation</strong>即可，如下图</p>
+<p><img src="https://i.loli.net/2020/08/23/Ab3tdW9maIBCrSu.png" alt="image.png"></p>
  
       <!-- reward -->
       
@@ -171,12 +202,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/08/16/Java%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
 
     </footer>
   </div>
@@ -184,19 +215,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Eclipse配置Java14+Tomcat9开发JavaWeb
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/08/15/Centos8-Docker-%E6%90%AD%E5%BB%BA-WebGoat8/" class="article-nav-link">
+      <a href="/2020/08/16/Java%E5%85%A5%E9%97%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Centos8 Docker 搭建 WebGoat8</div>
+        <div class="article-nav-title">Java入门</div>
       </a>
     
   </nav>

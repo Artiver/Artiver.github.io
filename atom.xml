@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-16T14:36:05.487Z</updated>
+  <updated>2020-08-23T08:29:21.419Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Eclipse配置Java14+Tomcat9开发JavaWeb</title>
+    <link href="http://yoursite.com/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/"/>
+    <id>http://yoursite.com/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/</id>
+    <published>2020-08-23T07:07:59.000Z</published>
+    <updated>2020-08-23T08:29:21.419Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;eclipse便携版配置好Tomcat，便于开发Javaweb&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="JavaWeb" scheme="http://yoursite.com/tags/JavaWeb/"/>
+    
+  </entry>
   
   <entry>
     <title>Java入门</title>

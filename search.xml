@@ -87,6 +87,51 @@
       </tags>
   </entry>
   <entry>
+    <title>Eclipse配置Java14+Tomcat9开发JavaWeb</title>
+    <url>/2020/08/23/Eclipse%E9%85%8D%E7%BD%AEJava14-Tomcat9%E5%BC%80%E5%8F%91JavaWeb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>eclipse便携版配置好Tomcat，便于开发Javaweb</p>
+<a id="more"></a>
+
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><hr>
+<p>Java下载，环境变量配置，这就不赘述了，到<a href="https://www.oracle.com/cn/java/technologies/javase-downloads.html">Oracle</a>下载jdk即可</p>
+<p>Tomcat下载，到<a href="https://tomcat.apache.org/download-90.cgi">Apache</a>页面，目前10还在开发，我的版本是9，解压到合适目录</p>
+<p>eclipse，在<a href="https://www.eclipse.org/downloads/packages/">官网</a>下载就好，我选的是便携版的eclipse for enterprise，解压到合适目录</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><hr>
+<h5 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h5><p>启动eclipse，选项卡<code>Windows--preference--server--runtime environment</code>，点击add，选择<code>Apache tomcat v9.0</code>，next，browse，选择Tomcat的目录，然后确定，finish，apply and close</p>
+<p><img src="https://i.loli.net/2020/08/23/5vXPqzNZ9tVGuFi.png" alt="image.png"></p>
+<h5 id="2、建立工程"><a href="#2、建立工程" class="headerlink" title="2、建立工程"></a>2、建立工程</h5><p>选项卡，<code>file--new--other</code>，往下选择<code>web--dynamic web project</code>，next，填写项目名，next，next，记得勾选<strong>generate web.xml</strong>！finish</p>
+<p><img src="https://i.loli.net/2020/08/23/WkFpdMZ6Dh8E5L4.png" alt="image.png"></p>
+<h5 id="3、最后配置"><a href="#3、最后配置" class="headerlink" title="3、最后配置"></a>3、最后配置</h5><p>如果eclipse的控制台没有servers选项卡，点击<code>Window--show views--servers</code></p>
+<p>此时是没有有效的server的，点击新建一个，弹出的窗口确定下信息</p>
+<p>然后next，接下来把我们的项目添加到配置里面（如下图），然后finish</p>
+<p><img src="https://i.loli.net/2020/08/23/Cqjm89pMd7OSriE.png" alt="image-20200823154215904.png"></p>
+<h5 id="4、测试结果"><a href="#4、测试结果" class="headerlink" title="4、测试结果"></a>4、测试结果</h5><p>打开<code>项目名--Java resources</code>，在src鼠标右击，<code>new--servlet</code>，</p>
+<p>输入包名和类名，package：test，classname：page，finish，java内容如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class page</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet(&quot;/page&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">page</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">page</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        response.getWriter().append(<span class="string">&quot;Served at: &quot;</span>).append(request.getContextPath());</span><br><span class="line">        PrintWriter pw = response.getWriter();</span><br><span class="line">        pw.println(<span class="string">&quot;\n&quot;</span>+request.getParameter(<span class="string">&quot;username&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>webcontent右击--new--jsp file</code>，文件名可设置为index.jsp，finish，jsp内容如下</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=ISO-8859-1&quot;</span></span><br><span class="line">    pageEncoding=<span class="string">&quot;ISO-8859-1&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;ISO-8859-1&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form name=<span class="string">&quot;input&quot;</span> action=<span class="string">&quot;page&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;username&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;Submit&quot;</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>控制台servers选项卡，右击Tomcat，start，浏览器输入 <a href="http://localhost:8080/MyServlet/index.jsp">http://localhost:8080/MyServlet/index.jsp</a> 回车</p>
+<p>即可看到输入框和submit按钮，输入hello，提交后，显示如下即为成功</p>
+<p><img src="https://i.loli.net/2020/08/23/8BK6NngRMHfLZrI.png" alt="image.png"></p>
+<p>然而此时的工程是部署在eclipse里的而不是Tomcat，所以在servers选项卡里</p>
+<p>删掉现有的服务器，按照之前的步骤新建一个Tomcat后，双击Tomcat v9.0，</p>
+<p>在server locations里面，选择<strong>use Tomcat installation</strong>即可，如下图</p>
+<p><img src="https://i.loli.net/2020/08/23/Ab3tdW9maIBCrSu.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>JavaWeb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo搭建</title>
     <url>/2020/08/15/Hexo%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搭建静态博客，免费运行在Gitee上，hexo还可以更换主题，具体的之后再写写吧</p>
